@@ -1,4 +1,4 @@
-<%= form_for(@flight) do |f| %>
+<%= form_for([@plane, @flight], :url => new_plane_flight_path) do |f| %>
   <% if @flight.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@flight.errors.count, "error") %> prohibited this flight from being saved:</h2>

@@ -21,9 +21,9 @@
         <td><%= flight.destination %></td>
         <td><%= flight.date %></td>
         <td><%= flight.plane_id %></td>
-        <td><%= link_to 'Show', plane_flight_path(flight) %></td>
-        <td><%= link_to 'Edit', edit_plane_flight_path(flight) %></td>
-        <td><%= link_to 'Destroy', plane_flight_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', plane_flight_path(@plane, flight) %></td>
+        <td><%= link_to 'Edit', edit_plane_flight_path(@plane, flight) %></td>
+        <td><%= link_to 'Destroy', plane_flight_path(@plane, flight), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

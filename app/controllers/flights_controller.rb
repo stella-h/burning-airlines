@@ -24,11 +24,13 @@ class FlightsController < ApplicationController
   # GET /flights/new
   def new
     @flight = Flight.new
+    @plane = Plane.find params[:plane_id]
   end
 
   # GET /flights/1/edit
   def edit
     @flight = Flight.find params[:id]
+    @plane = Plane.find params[:plane_id]
   end
 
   # POST /flights
