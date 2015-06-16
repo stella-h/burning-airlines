@@ -43,6 +43,9 @@ Rails.application.routes.draw do
   post '/' => 'sessions#create'
   delete '/' => 'sessions#destroy'
 
+  get '/app' => 'planes#search', :as => 'app'
+
+
   namespace :app do
     resources :planes do
       resources :flights do

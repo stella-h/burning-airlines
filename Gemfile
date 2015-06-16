@@ -17,6 +17,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'remove_turbolinks'
+gem 'gon'
 
 group :development do
   gem 'pry-rails'

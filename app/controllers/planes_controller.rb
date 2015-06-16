@@ -1,6 +1,15 @@
 class PlanesController < ApplicationController
   before_action :set_plane, only: [:show, :edit, :update, :destroy]
 
+def search 
+  if @current_user 
+    gon.user = @current_user
+    render :search
+  else 
+    redirect_to "/"
+  end
+end
+
   # GET /planes
   # GET /planes.json
   def index
