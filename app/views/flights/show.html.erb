@@ -1,3 +1,4 @@
+<h3>Flight <%= @flight.id %></h3>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -16,9 +17,15 @@
 </p>
 
 <p>
-  <strong>Plane:</strong>
+  <strong>Plane ID:</strong>
   <%= @flight.plane_id %>
 </p>
 
-<%= link_to 'Edit', edit_flight_path(@flight) %> |
-<%= link_to 'Back', flights_path %>
+<p>
+  <strong>Plane Name:</strong>
+  <%= @plane.name %>
+</p>
+
+<%= link_to 'Edit', edit_plane_flight_path %> |
+<%= link_to 'Back', plane_flights_path %>
+
