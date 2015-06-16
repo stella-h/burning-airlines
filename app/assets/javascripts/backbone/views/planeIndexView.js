@@ -8,7 +8,7 @@ app.PlaneIndexView = Backbone.View.extend ({
     var toAppend = this.$el.html(PlaneIndexHTML(this.model.toJSON()) );
 
     el.append( toAppend );
+
+    
   }
-
-
 });

@@ -20,5 +20,5 @@
   <%= @flight.plane_id %>
 </p>
 
-<%= link_to 'Edit', edit_flight_path(@flight) %> |
-<%= link_to 'Back', flights_path %>
+<%= link_to 'Edit', edit_plane_flight_path(id: @flight.id, plane_id: @flight.plane_id) %> |
+<%= link_to 'Back', plane_flights_path(plane_id: @flight.plane_id) %>
