@@ -9,7 +9,7 @@ $(document).ready(function() {
   app.allPlanes = new app.Planes();
   app.allPlanes.fetch().done(function(){
      app.router = new app.AppRouter();
-       Backbone.history.start()
+       Backbone.history.start();
   });
 
 });
