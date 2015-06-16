@@ -8,8 +8,7 @@ app.AppRouter = Backbone.Router.extend({
   },
 
   search: function() {
-
-    var searchView = new app.SearchView();
+    var searchView = new app.SearchView({ collection: app.allPlanes });
     searchView.render();
   }
 

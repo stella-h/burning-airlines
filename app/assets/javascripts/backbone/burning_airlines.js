@@ -6,8 +6,10 @@ _.templateSettings = {
 };
 
 $(document).ready(function() {
-
-  app.router = new app.AppRouter();
-  Backbone.history.start()
+  app.allPlanes = new app.Planes();
+  app.allPlanes.fetch().done(function(){
+     app.router = new app.AppRouter();
+       Backbone.history.start()
+  });
 
 });
