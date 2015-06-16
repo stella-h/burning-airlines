@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @flight %> |
-<%= link_to 'Back', flights_path %>
+<%= link_to 'Show', plane_flight_path(id: @flight.id, plane_id: @flight.plane_id) %> |
+<%= link_to 'Back', plane_flights_path(id: @flight.id, plane_id: @flight.plane_id) %>
