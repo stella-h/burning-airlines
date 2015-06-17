@@ -36,11 +36,11 @@ class FlightsController < ApplicationController
   # POST /flights
   # POST /flights.json
   def create
-
+    @plane = Plane.find params[:plane_id]
     @flight = Flight.new flight_params
     @flight.plane_id = @plane.id
     if @flight.save
-      redirect_to plane_flight_path 
+      redirect_to plane_flights_path 
     else 
       render :new
     end
@@ -79,7 +79,7 @@ class FlightsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_flight
-      @flight = Flight.find(params[:id])
+      @flight = Flight.find params[:id]   
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
