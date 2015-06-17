@@ -10,6 +10,7 @@ app.FlightView = Backbone.View.extend({
     var data = this.model.toJSON();
     data.rows = rows;
     data.columns = columns;
+    data.planeName = app.allPlanes.toJSON()[data.plane_id-1].name;  //Michael wrote this code. Blame him.
 
     var toAppend = this.$el.html(flightHTML(data));
 
