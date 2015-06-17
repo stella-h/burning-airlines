@@ -13,34 +13,48 @@ app.SearchView = Backbone.View.extend({
   },
 });
 
-var findFlights = function(origin, destination) {
+var findFlights = function(origin, destination, date) {
   origin = origin || "";
   destination = destination || "";
+  date = date || "";
 
   var result = [];
-  if (origin !== "" && destination !== "") {
+
+  if (origin !== "" && destination !== "" && date !== "") {
     for (var i = 0; i < app.allFlights.toJSON().length; i++) {
       var thisOri = app.allFlights.toJSON()[i].origin;
       var thisDest = app.allFlights.toJSON()[i].destination;
+      var thisDate = app.allFlights.toJSON()[i].date;
+      debugger;
 
-      if (thisOri === origin.toUpperCase() && thisDest === destination.toUpperCase()) {
-        console.log('we have a match!');
+      if (thisOri === origin.toUpperCase() && thisDest === destination.toUpperCase() && thisDate === date) {
+        console.log('the date, destination and origin match');
         result.push(app.allFlights.models[i]);
       }
-    };
-  } else if (destination !== "") {
+    }
+  } else if (destination !== "" && date !== "") {
     for (var j = 0; j < app.allFlights.toJSON().length; j++) {
       var thisDest = app.allFlights.toJSON()[j].destination;
-      if (thisDest === destination.toUpperCase()) {
-        console.log('the destination is a match!');
+      var thisDate = app.allFlights.toJSON()[j].date
+      if (thisDest === destination.toUpperCase() && thisDate === date) {
+        console.log('the destination and date is a match!');
         result.push(app.allFlights.models[j]);
       }
     }
-  } else if (origin !== "") {
+  } else if (origin !== "" && date !== "") {
     for (var k = 0; k < app.allFlights.toJSON().length; k++) {
       var thisOri = app.allFlights.toJSON()[k].origin;
-      if (thisOri === origin.toUpperCase()) {
-        console.log('the origin is a match!');
+      var thisDate = app.allFlights.toJSON()[k].date;
+      if (thisOri === origin.toUpperCase() && thisDate === date) {
+        console.log('the origin and date are a match!');
+        result.push(app.allFlights.models[k]);
+      }
+    }
+  } else if (date !== "") {
+    for (var k = 0; k < app.allFlights.toJSON().length; k++) {
+      var thisDate = app.allFlights.toJSON()[k].date;
+      if (thisDate === date) {
+        console.log('the date is a match!');
         result.push(app.allFlights.models[k]);
       }
     }
