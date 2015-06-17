@@ -45,7 +45,6 @@ Rails.application.routes.draw do
 
   get '/app' => 'planes#search', :as => 'app'
 
-
   scope :app do
     resources :planes do
       resources :flights do

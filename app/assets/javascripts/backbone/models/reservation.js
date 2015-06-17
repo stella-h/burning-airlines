@@ -6,7 +6,5 @@ app.Reservation = Backbone.Model.extend({
     column: 0,
     user_id:0,
     flight_id:0
-
   }
-
 });

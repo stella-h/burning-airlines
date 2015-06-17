@@ -1,6 +1,7 @@
+
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Flights</h1>
+<h3>All Flights for <%= @plane.name %></h3>
 
 <table>
   <thead>
@@ -20,9 +21,9 @@
         <td><%= flight.destination %></td>
         <td><%= flight.date %></td>
         <td><%= flight.plane_id %></td>
-        <td><%= link_to 'Show', flight %></td>
-        <td><%= link_to 'Edit', edit_flight_path(flight) %></td>
-        <td><%= link_to 'Destroy', flight, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', plane_flight_path(@plane, flight) %></td>
+        <td><%= link_to 'Edit', edit_plane_flight_path(@plane, flight) %></td>
+        <td><%= link_to 'Destroy', plane_flight_path(@plane, flight), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +31,4 @@
 
 <br>
 
-<%= link_to 'New Flight', new_flight_path %>
+<%= link_to 'New Flight', new_plane_flight_path %>
