@@ -20,6 +20,7 @@ var findFlights = function(origin, destination, dateOne, dateTwo) {
   dateTwo = Date.parse(dateTwo) || "";
   var dateMatch; 
 
+//Date match checks whether the dates entered by the user (if any) match flight dates and returns a boolean used below.
   var dateMatchFunc = function() {
     if (dateOne !== "" && dateTwo !== "") {
       if ((dateOne < thisDate) && (thisDate < dateTwo)) {
