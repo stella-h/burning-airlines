@@ -17,4 +17,12 @@
 
 
 <%= link_to 'Edit', edit_plane_path(@plane) %> |
-<%= link_to 'Back', planes_path %>
+<%= link_to 'Back', planes_path %> | 
+<%= link_to 'View Flights', plane_flights_path(@plane)%> |
+<%= link_to 'Add Flight', new_plane_flight_path(@plane)%>
+<h3>Flights scheduled for <%= @plane.name %></h3>
+<% @plane.flights.each do |flight| %>
+  <li class="bullets">Flight number <%= link_to flight.id, plane_flight_path(@plane, flight) %> </li>
+<% end %>
+
+

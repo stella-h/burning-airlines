@@ -1,14 +1,13 @@
-<h1>Editing Flight <%= @flight.id %></h1>
+<h3>Editing Flight <%= @flight.id %></h3>
 
 
 <% planeid = @plane.id.to_s %>
-<%= flightid = @flight.id.to_s %>
+<% flightid = @flight.id.to_s %>
 <%= form_for([@plane, @flight], :url => '/app/planes/' + planeid + '/flights/' + flightid) do |f| %>
 
-<% if @flight.errors.any? %>
+  <% if @flight.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@flight.errors.count, "error") %> prohibited this flight from being saved:</h2>
-
       <ul>
       <% @flight.errors.full_messages.each do |message| %>
         <li><%= message %></li>

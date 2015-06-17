@@ -23,7 +23,7 @@
 
 <p>
   <strong>Plane Name:</strong>
-  <%= @plane.name %>
+  <%= link_to @plane.name, plane_flights_path %>
 </p>
 
 <%= link_to 'Edit', edit_plane_flight_path%> |
