@@ -17,7 +17,7 @@ class FlightsController < ApplicationController
     end
     respond_to do |format| 
       format.html { }
-      format.json {render :json => @flights}
+      format.json { render :json => @flights }
     end 
   end
 
