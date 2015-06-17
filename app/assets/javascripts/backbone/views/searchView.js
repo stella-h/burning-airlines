@@ -4,11 +4,18 @@ app.SearchView = Backbone.View.extend({
       el: "#main",
       events: {
         'click': 'PlaneIndexTemplate'
+      },
 
   render: function() {
 
     this.$el.html($("#search").html());
-  }
+  },
+  
+  PlaneIndexTemplate: function() {
+        // console.log('app/planes/' + this.collection.models[0].get('id'));
+        app.router.navigate('app/planes/' + this.collection.models[0].get('id'), true);
+        // app.router.navigate('app/planes/' + this.model.get('name') + '/edit' + true)
+  },
 });
 
 var findFlights = function(origin, destination) {
@@ -24,22 +31,19 @@ var findFlights = function(origin, destination) {
       if (thisOri === origin.toUpperCase() && thisDest === destination.toUpperCase()) {
         console.log('we have a match!');
         result.push(app.allFlights.models[i]);
-      };
+      }
     };
   } else if (destination !== "") {
     for (var j = 0; j < app.allFlights.toJSON().length; j++) {
       var thisDest = app.allFlights.toJSON()[j].destination;
-
       if (thisDest === destination.toUpperCase()) {
         console.log('the destination is a match!');
-        app
         result.push(app.allFlights.models[j]);
       }
     }
   } else if (origin !== "") {
     for (var k = 0; k < app.allFlights.toJSON().length; k++) {
       var thisOri = app.allFlights.toJSON()[k].origin;
-
       if (thisOri === origin.toUpperCase()) {
         console.log('the origin is a match!');
         result.push(app.allFlights.models[k]);
@@ -53,8 +57,8 @@ var renderResults = function(results) {
   $('#searchResults').html('');
 
   for ( var i = 0; i < results.length; i++ ) {
-    var flightIndexView = new app.FlightIndexView({model: results[i]})
+    var flightIndexView = new app.FlightIndexView({model: results[i]});
     flightIndexView.render();
-  };
+  }
 };
 
