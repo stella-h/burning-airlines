@@ -7,7 +7,6 @@ app.AppRouter = Backbone.Router.extend({
     'app/planes/:id' : 'planeView',
     'planes/:plane_id/flights/:id': 'flightView',
     'planes': 'planeListView'
-    // 'app/plane/:id/edit'
   },
 
   search: function() {
