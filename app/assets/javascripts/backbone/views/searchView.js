@@ -11,10 +11,6 @@ app.SearchView = Backbone.View.extend({
 
     this.$el.html($("#search").html());
   },
-  
-  PlaneIndexTemplate: function() {
-        app.router.navigate('app/planes/' + this.collection.models[0].get('id'), true);
-  },
 });
 
 var findFlights = function(origin, destination) {
