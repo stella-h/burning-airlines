@@ -9,7 +9,7 @@
       <th>Destination</th>
       <th>Date</th>
       <th>Plane</th>
-      <th colspan="3"></th>
+      <th colspan="5">Admin</th>
     </tr>
   </thead>
 
@@ -23,6 +23,8 @@
         <td><%= link_to 'Show', plane_flight_path(@plane, flight) %></td>
         <td><%= link_to 'Edit', edit_plane_flight_path(@plane, flight) %></td>
         <td><%= link_to 'Destroy', plane_flight_path(@plane, flight), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+
       </tr>
     <% end %>
   </tbody>

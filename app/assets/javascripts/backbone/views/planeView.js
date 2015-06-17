@@ -12,11 +12,7 @@ app.PlaneView = Backbone.View.extend({
     var PlaneViewTemplate = $('#PlaneViewTemplate').html();
     var PlaneTemplateHTML = _.template(PlaneTemplateHTML);
 
-<<<<<<< HEAD
     this.$el.html(PlaneTemplateHTML(this.model.toJSON));
-=======
-    this.$el.html(PlaneTemplateHTML(this.model.toJSON)) );
->>>>>>> 9a95aabf72cd828c9f4251d269f32798ba8906b4
   },
 
   submitView: function (e) {
