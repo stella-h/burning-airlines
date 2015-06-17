@@ -17,7 +17,7 @@ class FlightsController < ApplicationController
     end
     respond_to do |format| 
       format.html { }
-      format.json {render :json => @flights}
+      format.json { render :json => @flights }
     end 
   end
 
@@ -51,6 +51,21 @@ class FlightsController < ApplicationController
     else 
       render :new
     end
+
+    rows = @flight.plane.rows
+    columns = @flight.plane.columns
+
+    for row in (0..(rows-1)) 
+      for column in (0..(columns-1))
+        @reservation = Reservation.new
+        @reservation.row = row
+        @reservation.column = column
+        @reservation.user_id = nil
+        @reservation.save;
+        @flight.reservations << @reservation
+      end
+    end
+
   end
 
     # @flight = Flight.new(flight_params)

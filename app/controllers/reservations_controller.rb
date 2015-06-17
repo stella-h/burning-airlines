@@ -4,18 +4,18 @@ class ReservationsController < ApplicationController
   # GET /reservations
   # GET /reservations.json
   def index
-      if params[:flight_id]
-        @flight = Flight.find params[:flight_id]
-        if @flight.reservations
-          @reservations = @flight.reservations
-        else
-          @reservations = []
-        end
+    if params[:flight_id]
+      @flight = Flight.find params[:flight_id]
+      if @flight.reservations
+        @reservations = @flight.reservations
+      else
+        @reservations = []
+      end
     else
       @reservations = Reservation.all
     end
     respond_to do |format| 
-      format.html {render :text => 'you made it this far'}
+      format.html {}
       format.json {render :json => @reservations}
     end 
   end
@@ -28,6 +28,7 @@ class ReservationsController < ApplicationController
   # GET /reservations/new
   def new
     @reservation = Reservation.new
+    @flight = Flight.find params[:flight_id]
   end
 
   # GET /reservations/1/edit
@@ -37,17 +38,18 @@ class ReservationsController < ApplicationController
   # POST /reservations
   # POST /reservations.json
   def create
-    @reservation = Reservation.new(reservation_params)
+    @reservation = Reservation.where(:flight_id => params[:flight_id], :row => )
+    @flight = Flight.find params[:flight_id]
+    @reservation.flight_id = @flight.id
 
-    respond_to do |format|
-      if @reservation.save
-        format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
-        format.json { render :show, status: :created, location: @reservation }
-      else
-        format.html { render :new }
-        format.json { render json: @reservation.errors, status: :unprocessable_entity }
-      end
-    end
+    # respond_to do |format|
+    #     # if @reservation.save
+    #     #   format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
+    #     #   format.json { render :show, status: :created, location: @reservation }
+    #     # else
+    #     #   format.html { render :new }
+    #     #   format.json { render json: @reservation.errors, status: :unprocessable_entity }
+    #     # end
   end
 
   # PATCH/PUT /reservations/1

@@ -2,7 +2,7 @@ var app = app || {};
 
 app.SeatView = Backbone.View.extend({
   tagName: 'div',
-  
+
   events: {
     'click': 'reserveSeat'
   },
@@ -16,6 +16,7 @@ app.SeatView = Backbone.View.extend({
     data.column = column;
 
     this.$el.addClass('seat');
+    this.$el.attr('id', ("" + row + column));
 
     var view = this;
 
@@ -34,10 +35,47 @@ app.SeatView = Backbone.View.extend({
   },
 
   reserveSeat: function() {
-    
-    console.log('nice');
-    console.log(this);
+    var allRes = app.currentReservations.toJSON();
+    var reservation;
 
+    for (var i = 0; i < allRes.length; i++) {
+      if (this.$el.attr('id').substring(0, 1) === (allRes[i].row + "") && this.$el.attr('id').substring(1) === (allRes[i].column + "")) {
+        reservation = allRes[i];
+        app.thisRes = new app.Reservation({'row': allRes[i].row, 'column': allRes[i].column, 'flight_id': allRes[i].flight_id,'user_id': allRes[i].user_id})
+      };
+    };
+
+    if (this.$el.hasClass('reserved') && reservation.user_id !== gon.user.id) {
+      
+      var sittingUser;
+      for ( var i = 0; i < app.allUsers.toJSON().length; i++ ) {
+        if (app.allUsers.toJSON()[i].id === reservation.user_id) {
+          sittingUser = app.allUsers.toJSON()
+        }
+      };
+      console.log('this seat is taken by ' + sittingUser.name);
+      // console.log(app.allUsers.toJSON()[reservation.user_id - 1].name);
+    } else if (this.$el.hasClass('reserved')) {
+      this.$el.removeClass('reserved');
+      app.thisRes.user_id = nil;
+    } else {
+      this.$el.addClass('reserved');
+      app.thisRes.user_id = gon.user.id;
+    };
+
+    console.log()
+
+    $.ajax({
+      url: ('/app/planes/' + app.currentPlane + '/flights/' + app.currentFlight + '/reservations'),
+      method: 'POST',
+      row: app.thisRes.row,
+      column: app.thisRes.column,
+      user_id: app.thisRes.user_id
+    }).done(function() {
+      console.log('update complete');
+    });
+
+    // window.alert('Congrats! This seat is taken so your chance of death in the near future has reduced dramatically!');
   }
 });
 
