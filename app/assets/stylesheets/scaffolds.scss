@@ -9,10 +9,19 @@ body {
   line-height: 18px;
 
   #searchDiv {
+    position: absolute;
+    top: 8vh;
+    left: 30%;
     border: 2px solid ;
     font-size: 16px;
     padding: 5px;
-    width: 200px;
+    width: 500px;
+  }
+
+  #seats-remaining{
+    color: CF000F;
+    font-size: 20px; 
+    text-decoration: underline;
   }
 
   p,
