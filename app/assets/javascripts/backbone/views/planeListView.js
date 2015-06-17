@@ -14,4 +14,4 @@ app.PlaneListView = Backbone.View.extend({
       plane.render();
     }
   }
-})
+});

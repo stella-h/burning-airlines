@@ -16,7 +16,7 @@ app.AppRouter = Backbone.Router.extend({
     $('#searchForm').on('submit', function(e) {
       e.preventDefault();
 
-      findFlights($('#departingSearch').val(), $('#arrivingSearch').val(), $('#dateSearch').val());
+      findFlights($('#departingSearch').val(), $('#arrivingSearch').val(), $('#dateOne').val(), $('#dateTwo').val());
     });
   },
 
@@ -37,6 +37,8 @@ app.AppRouter = Backbone.Router.extend({
     // Then we need to go through the collection of all of your planes and grab the one that you need 
     // Then pass it in as the model
 
+    app.planeView = new app.PlaneView({model: app.allPlanes.models[planeID-1]});
+    app.planeView.render();
     console.log('oh shiiiiiiiiiiiieeeeeet homie, we are in the planeView function now dawg');
 
     // var plane = app.allPlanes.get( planeID );

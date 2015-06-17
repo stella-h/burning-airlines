@@ -9,10 +9,12 @@ app.PlaneView = Backbone.View.extend({
   },
 
   render: function () {
+    console.log('We are in the render function now, inceptcode!')
     var PlaneViewTemplate = $('#PlaneViewTemplate').html();
-    var PlaneTemplateHTML = _.template(PlaneTemplateHTML);
 
-    this.$el.html(PlaneTemplateHTML(this.model.toJSON));
+    var PlaneTemplateHTML = _.template(PlaneViewTemplate);
+
+    this.$el.html(PlaneTemplateHTML(this.model.toJSON()) );
   },
 
   submitView: function (e) {
