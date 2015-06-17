@@ -4,7 +4,9 @@ app.AppRouter = Backbone.Router.extend({
 
   routes: {
     '': 'search',
-    'planes/:plane_id/flights/:id': 'flightView'
+    'planes/:plane_id/flights/:id': 'flightView',
+    'app/plane/:id' : 'viewPlane'
+    // 'app/plane/:id/edit'
   },
 
   search: function() {
@@ -26,6 +28,11 @@ app.AppRouter = Backbone.Router.extend({
     
     var flightView = new app.FlightView({model: app.allFlights.models[flight_id-1]});
     flightView.render(rows, columns)
+  },
+
+  viewPlane: function() {
+    var Plane = app.viewPlanes.get(id);
+    var viewPlane = new ViewPlane({model: plane});
+    viewPlane.render();
   }
 });
-

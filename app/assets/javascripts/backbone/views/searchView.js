@@ -1,7 +1,9 @@
 var app = app || {};
 
 app.SearchView = Backbone.View.extend({
-  el: "#main",
+      el: "#main",
+      events: {
+        'click': 'PlaneIndexTemplate'
 
   render: function() {
 
@@ -55,3 +57,4 @@ var renderResults = function(results) {
     flightIndexView.render();
   };
 };
+
