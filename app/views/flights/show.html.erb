@@ -1,0 +1,31 @@
+<h3>Flight <%= @flight.id %></h3>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Origin:</strong>
+  <%= @flight.origin %>
+</p>
+
+<p>
+  <strong>Destination:</strong>
+  <%= @flight.destination %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @flight.date %>
+</p>
+
+<p>
+  <strong>Plane ID:</strong>
+  <%= @flight.plane_id %>
+</p>
+
+<p>
+  <strong>Plane Name:</strong>
+  <%= @plane.name %>
+</p>
+
+<%= link_to 'Edit', edit_plane_flight_path%> |
+<%= link_to 'Back', plane_flights_path %>
+
