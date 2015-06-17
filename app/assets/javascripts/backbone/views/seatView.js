@@ -21,6 +21,8 @@ app.SeatView = Backbone.View.extend({
       console.log('checking position ' + data.row + ', ' + data.column + ' against reservation: ' + r[i].row + ', ' + r[i].column);
       if (data.row === r[i].row && data.column === r[i].column) {
         view.$el.addClass('reserved');
+        app.seatsRemaining--;
+        console.log('one seat taken, there are now ' + app.seatsRemaining + 'seats on this flight.');
       }
 
 
