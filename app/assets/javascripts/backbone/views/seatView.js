@@ -63,13 +63,13 @@ app.SeatView = Backbone.View.extend({
       app.thisRes.set({'user_id': gon.user.id});
     };
 
-    $.ajax({
-      url: ('/app/planes/' + app.currentPlane + '/flights/' + app.currentFlight + '/reservations/' + reservation.id),
-      method: 'POST',
-      data: app.thisRes
-    }).done(function() {
-      console.log('update complete');
-    });
+    // $.ajax({
+    //   url: ('/app/planes/' + app.currentPlane + '/flights/' + app.currentFlight + '/reservations/' + reservation.id),
+    //   method: 'POST',
+    //   data: app.thisRes
+    // }).done(function() {
+    //   console.log('update complete');
+    // });
 
     // window.alert('Congrats! This seat is taken so your chance of death in the near future has reduced dramatically!');
   }
