@@ -24,18 +24,15 @@
 </script>
 
 <script id="flightIndexTemplate" type="text/template">
-  <p> Date: {{ date }} - Flight No: {{ id }} - Origin: {{ origin }} - Destination: {{ destination }}</p>
+  Date: {{ date }} - Flight No: {{ id }} - Origin: {{ origin }} - Destination: {{ destination }}
 </script>
 
 <script id="flightView" type="text/template">
   <div id="flightViewDiv">
   <h2>Flight {{ id }}</h2>
   <h3>Seats Remaining: {{ rows * columns }}</h3>
-  {[ for (var i = 0; i < rows; i++) { ]}
-    {[ for (var j = 0; j < columns; j++) { ]}
-      <div id="{{i}}{{j}}" class="seat"></div>
-    {[ } ]}
-    <br>
-  {[ }; ]}
-  </div>
+</script>
+
+<script id="seatViewTemplate" type="text/template">
+  {{row}}, {{column}}
 </script>

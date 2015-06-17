@@ -19,8 +19,10 @@ app.FlightIndexView = Backbone.View.extend ({
   showFlight: function(){
     app.currentPlane = this.model.get('plane_id');
     app.currentFlight = this.model.get('id');
+
     console.log('flight id:', app.currentFlight);
     console.log('plane id:', app.currentPlane);
+
     app.router.navigate('planes/' + app.currentPlane + '/flights/' + app.currentFlight, true);
   }
 });
