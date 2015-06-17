@@ -14,3 +14,25 @@
 <script id="PlaneIndexTemplate" type="text/template">
     <h3> {{ name }} </h3>
 </script>
+
+<script id="PlaneViewTemplate" type="text/template">
+<h3> {{name}} </h3>
+<div id="edit"></div>
+<form>
+  <div>
+    <label for="name">name of plane</label>
+    <input id="name">
+  </div>
+
+  <div> 
+    <label for="row"> how many rows</label>
+    <input id="row">
+  </div>
+
+  <div> 
+    <label for="columns"> how many columns</label>
+    <input id="columns">
+  </div>
+  <button> update </button>
+</form>
+</script>

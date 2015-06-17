@@ -22,7 +22,8 @@ app.SearchView = Backbone.View.extend({
       },
 
       PlaneIndexTemplate: function() {
-        app.router.navigate('app/planes/' + this.collection.models[0].get('id') + true);
+        // console.log('app/planes/' + this.collection.models[0].get('id'));
+        app.router.navigate('app/planes/' + this.collection.models[0].get('id'), true);
         // app.router.navigate('app/planes/' + this.model.get('name') + '/edit' + true)
       }
     });
