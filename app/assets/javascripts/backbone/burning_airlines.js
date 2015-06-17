@@ -8,13 +8,16 @@ _.templateSettings = {
 $(document).ready(function() {
   app.allPlanes = new app.Planes();
   app.allFlights = new app.Flights();
+  app.allUsers = new app.Users();
   app.currentPlane = 0;
   app.currentFlight = 0;
 
   app.allPlanes.fetch().done(function(){
     app.allFlights.fetch().done(function(){
-      app.router = new app.AppRouter();
-      Backbone.history.start();
+      app.allUsers.fetch().done(function(){
+        app.router = new app.AppRouter();
+        Backbone.history.start();
+      });
     });  
   });
 

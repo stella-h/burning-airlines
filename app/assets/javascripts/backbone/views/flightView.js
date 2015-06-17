@@ -12,6 +12,9 @@ app.FlightView = Backbone.View.extend({
     data.columns = columns;
     data.planeName = app.allPlanes.toJSON()[data.plane_id-1].name;  //Michael wrote this code. Blame him.
 
+    app.seatsRemaining = rows * columns;
+    console.log('this flight has a maximum of ' + app.seatsRemaining + ' seats.');
+
     var toAppend = this.$el.html(flightHTML(data));
 
     this.$el.append(toAppend);
@@ -35,8 +38,11 @@ app.FlightView = Backbone.View.extend({
 
         $('#flightViewDiv').append('<br />');
       };
+      $('#seats-remaining').html('' + app.seatsRemaining);
       // End of seat creation
-    })
+    });
+
+    
 
   }
 
