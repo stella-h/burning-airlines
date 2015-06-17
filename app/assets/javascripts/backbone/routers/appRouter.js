@@ -17,7 +17,7 @@ app.AppRouter = Backbone.Router.extend({
     $('#searchForm').on('submit', function(e) {
       e.preventDefault();
 
-      findFlights($('#departingSearch').val(), $('#arrivingSearch').val(), $('#dateSearch').val());
+      findFlights($('#departingSearch').val(), $('#arrivingSearch').val(), $('#dateOne').val(), $('#dateTwo').val());
     });
   },
 
