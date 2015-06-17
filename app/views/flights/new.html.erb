@@ -28,7 +28,7 @@
     <%= f.date_select :date %>
   </div>
   <div class="field">
-   <p>Name: <%= @plane.name %></p>
+   <p>Plane: <%= link_to @plane.name, plane_flights_path %></p>
   </div>
   <div class="actions">
     <%= f.submit %>
