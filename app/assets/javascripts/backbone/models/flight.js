@@ -7,6 +7,4 @@ app.Flight = Backbone.Model.extend({
     date: '',
     plane_id: 0
   }
-
-
 });

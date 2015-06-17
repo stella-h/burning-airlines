@@ -1,16 +1,38 @@
-<h1>Search page</h1>
-
+<header>
+  <h1>Burning Airlines</h1>  
+</header>
 <div id="main">
   
 </div>
 
 <script id="search" type="text/template"> 
-
-  <h2>Yay, its fucking working</h2>
-
+  <div id="searchDiv">
+    <h2>Search Flights:</h2>
+    <form id="searchForm" action="#">
+      <label for="departing">Departing From: </label>
+      <input name="departing" id="departingSearch" type="text" placeholder="Departing From... e.g. 'XYZ'">
+      <br>
+      <label for="arriving">Arriving At: </label>
+      <input name="arriving" id="arrivingSearch" type="text" placeholder="Arriving At... e.g. 'XYZ'">
+      <p> </p>
+      <button>Submit Search</button>
+    </form>
+    <div id="searchResults">
+      <p>Results Appear Here.</p>
+    </div>
+  </div>
 </script>
 
+<script id="flightIndexTemplate" type="text/template">
+  Date: {{ date }} - Flight No: {{ id }} - Origin: {{ origin }} - Destination: {{ destination }}
+</script>
 
-<script id="PlaneIndexTemplate" type="text/template">
-    <h3> {{ name }} </h3>
+<script id="flightView" type="text/template">
+  <div id="flightViewDiv">
+  <h2>Flight {{ id }}</h2>
+  <h3>Seats Remaining: {{ rows * columns }}</h3>
+</script>
+
+<script id="seatViewTemplate" type="text/template">
+  {{row}}, {{column}}
 </script>
