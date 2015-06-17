@@ -35,12 +35,15 @@
 
 <script id="flightView" type="text/template">
   <div id="flightViewDiv">
-  <h2>Flight {{ id }}</h2>
-  <h3>Seats Remaining: </h3><h3 id="seats-remaining"></h3>
+  <h2>Burning Airlines Flight {{ id }}</h2>
+  <p>Origin: {{origin}}</p>
+  <p>Destination: {{destination}}</p>
+  <p>Plane: {{ planeName }} </p>
+  <h3>Seats Remaining: {{ rows * columns }}</h3>
 </script>
 
 <script id="PlaneIndexTemplate" type="text/template">
-  <h3>Plane Name: {{ name }}</h3>
+  <h3>Plane: {{ name }}</h3>
 </script>
 
 <script id="PlaneViewTemplate" type="text/template">
