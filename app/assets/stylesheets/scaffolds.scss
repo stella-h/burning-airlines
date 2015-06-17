@@ -1,25 +1,29 @@
 @import url(http://fonts.googleapis.com/css?family=Lato);
-body {
+html,body {
   background-color: #ECECEC;
   text-transform: uppercase;
   text-align: center;
   color: #333;
   font-family: lato;
-  font-size: 13px;
+  font-size: 20px;
   line-height: 18px;
 
   #searchDiv {
     position: absolute;
-    top: 8vh;
+    top: 15vh;
     left: 30%;
     border: 2px solid ;
     font-size: 16px;
     padding: 5px;
-    width: 500px;
+    width: 600px;
+  }
+
+  .seats {
+    font-size: 0.1em;
   }
 
   #seats-remaining{
-    color: CF000F;
+    color: #CF000F;
     font-size: 20px; 
     text-decoration: underline;
   }
@@ -30,8 +34,13 @@ body {
   td {
     font-family: lato;
     text-align: center;
-    font-size: 13px;
+    font-size: 0.9em;
     line-height: 18px;
+  }
+
+  #flightViewDiv h3{
+    color: #F22613;
+    font-style: bold;
   }
 }
 
