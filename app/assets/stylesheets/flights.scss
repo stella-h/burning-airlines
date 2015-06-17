@@ -63,3 +63,11 @@ input + input {
   border: 1px black solid;
   display: inline-block;
 }
+
+.seat:hover {
+  background-color: slategrey;
+}
+
+.reserved {
+  background-color: blue;
+}

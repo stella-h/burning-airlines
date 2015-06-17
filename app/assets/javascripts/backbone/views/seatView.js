@@ -1,8 +1,8 @@
 var app = app || {};
 
-app.SeatView = Backbone.View.extend ({
+app.SeatView = Backbone.View.extend({
   tagName: 'div',
-  render: function (row, column){
+  render: function(row, column) {
     var seatViewTemplate = $('#seatViewTemplate').html();
     var seatViewHTML = _.template(seatViewTemplate);
 
@@ -12,7 +12,21 @@ app.SeatView = Backbone.View.extend ({
 
     this.$el.addClass('seat');
 
-    var toAppend = this.$el.html(seatViewHTML(data));
-    $('#flightViewDiv').append( toAppend );
+    var view = this;
+
+    r = app.currentReservations.toJSON();
+
+    console.log(r);
+    for (var i = 0; i < r.length; i++) {
+      console.log('checking position ' + data.row + ', ' + data.column + ' against reservation: ' + r[i].row + ', ' + r[i].column);
+      if (data.row === r[i].row && data.column === r[i].column) {
+        view.$el.addClass('reserved');
+      }
+
+
+    }
+
+    var toAppend = view.$el.html(seatViewHTML(data));
+    $('#flightViewDiv').append(toAppend);
   }
 });
