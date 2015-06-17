@@ -5,9 +5,5 @@ app.Plane = Backbone.Model.extend({
     name: 'PP',
     rows: 0,
     columns: 0
-
-
-
   }
-
 });
