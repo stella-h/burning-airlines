@@ -57,19 +57,23 @@ app.SeatView = Backbone.View.extend({
       // console.log(app.allUsers.toJSON()[reservation.user_id - 1].name);
     } else if (this.$el.hasClass('reserved')) {
       this.$el.removeClass('reserved');
-      app.thisRes.set({'user_id': nil});
+      app.thisRes.user_id = nil;
     } else {
       this.$el.addClass('reserved');
-      app.thisRes.set({'user_id': gon.user.id});
+      app.thisRes.user_id = gon.user.id;
     };
 
-    // $.ajax({
-    //   url: ('/app/planes/' + app.currentPlane + '/flights/' + app.currentFlight + '/reservations/' + reservation.id),
-    //   method: 'POST',
-    //   data: app.thisRes
-    // }).done(function() {
-    //   console.log('update complete');
-    // });
+    console.log()
+
+    $.ajax({
+      url: ('/app/planes/' + app.currentPlane + '/flights/' + app.currentFlight + '/reservations'),
+      method: 'POST',
+      row: app.thisRes.row,
+      column: app.thisRes.column,
+      user_id: app.thisRes.user_id
+    }).done(function() {
+      console.log('update complete');
+    });
 
     // window.alert('Congrats! This seat is taken so your chance of death in the near future has reduced dramatically!');
   }

@@ -38,9 +38,9 @@ class ReservationsController < ApplicationController
   # POST /reservations
   # POST /reservations.json
   def create
-    # @reservation = Reservation.new reservation_params
-    # @flight = Flight.find params[:flight_id]
-    # @reservation.flight_id = @flight.id
+    @reservation = Reservation.where(:flight_id => params[:flight_id], :row => )
+    @flight = Flight.find params[:flight_id]
+    @reservation.flight_id = @flight.id
 
     # respond_to do |format|
     #     # if @reservation.save
