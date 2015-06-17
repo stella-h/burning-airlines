@@ -47,6 +47,8 @@ Rails.application.routes.draw do
 
   get '/flights' => 'flights#index'
 
+  get '/reservations' => 'reservations#index'
+
   scope :app do
     resources :planes do
       resources :flights do

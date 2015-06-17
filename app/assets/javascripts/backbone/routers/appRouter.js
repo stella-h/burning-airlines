@@ -7,7 +7,6 @@ app.AppRouter = Backbone.Router.extend({
     'app/planes/:id' : 'planeView',
     'planes/:plane_id/flights/:id': 'flightView',
     'planes': 'planeListView'
-    // 'app/plane/:id/edit'
   },
 
   search: function() {
@@ -17,7 +16,7 @@ app.AppRouter = Backbone.Router.extend({
     $('#searchForm').on('submit', function(e) {
       e.preventDefault();
 
-      findFlights($('#departingSearch').val(), $('#arrivingSearch').val(), $('#dateSearch').val());
+      findFlights($('#departingSearch').val(), $('#arrivingSearch').val(), $('#dateOne').val(), $('#dateTwo').val());
     });
   },
 

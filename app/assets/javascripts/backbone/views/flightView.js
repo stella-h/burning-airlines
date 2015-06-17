@@ -2,7 +2,7 @@ var app = app || {};
 
 app.FlightView = Backbone.View.extend({
   el: '#main',
-  
+
   render: function(rows, columns) {
     var flightTemplate = $('#flightView').html();
     var flightHTML = _.template(flightTemplate);
@@ -13,31 +13,39 @@ app.FlightView = Backbone.View.extend({
 
     var toAppend = this.$el.html(flightHTML(data));
 
-    this.$el.append( toAppend );
+    this.$el.append(toAppend);
 
-    // Creates the seats on the Flight page
-    for (var i = 0; i < rows; i++) {
+    var view = this;
 
-      for (var j = 0; j < columns; j++) {
+    app.currentReservations = new app.Reservations()
+    app.currentReservations.fetch().done(function() {
 
-        var seat = new app.SeatView({model: this.model});
-        seat.render(i, j);
+      // Creates the seats on the Flight page
+      for (var i = 0; i < rows; i++) {
 
+        for (var j = 0; j < columns; j++) {
+
+          var seat = new app.SeatView({
+            model: view.model
+          });
+          seat.render(i, j);
+
+        };
+
+        $('#flightViewDiv').append('<br />');
       };
-
-      $('#flightViewDiv').append('<br />');
-    };
-    // End of seat creation
+      // End of seat creation
+    })
 
   }
 
 })
 
 
-  // {[ for (var i = 0; i < rows; i++) { ]}
-  //   {[ for (var j = 0; j < columns; j++) { ]}
-  //     <div id="{{i}}{{j}}" class="seat"></div>
-  //   {[ } ]}
-  //   <br>
-  // {[ }; ]}
-  // </div>
+// {[ for (var i = 0; i < rows; i++) { ]}
+//   {[ for (var j = 0; j < columns; j++) { ]}
+//     <div id="{{i}}{{j}}" class="seat"></div>
+//   {[ } ]}
+//   <br>
+// {[ }; ]}
+// </div>
