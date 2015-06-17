@@ -2,8 +2,9 @@ var app = app || {};
 
 app.SearchView = Backbone.View.extend({
       el: "#main",
+
       events: {
-        'click': 'PlaneIndexTemplate'
+        'click': 'findFlights'
       },
 
   render: function() {
@@ -12,9 +13,7 @@ app.SearchView = Backbone.View.extend({
   },
   
   PlaneIndexTemplate: function() {
-        // console.log('app/planes/' + this.collection.models[0].get('id'));
         app.router.navigate('app/planes/' + this.collection.models[0].get('id'), true);
-        // app.router.navigate('app/planes/' + this.model.get('name') + '/edit' + true)
   },
 });
 
@@ -50,6 +49,7 @@ var findFlights = function(origin, destination) {
       }
     }
   };
+  console.log(result);
   renderResults(result);
 };
 
