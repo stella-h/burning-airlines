@@ -12,8 +12,10 @@ $(document).ready(function() {
   app.currentFlight = 0;
 
   app.allPlanes.fetch().done(function(){
+    app.allFlights.fetch().done(function(){
       app.router = new app.AppRouter();
-       Backbone.history.start()  
+      Backbone.history.start();
+    });  
   });
 
   setInterval(function() {

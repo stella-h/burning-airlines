@@ -5,12 +5,20 @@ class FlightsController < ApplicationController
   # GET /flights.json
 
   def index
-    @plane = Plane.find params[:plane_id]
-    if @plane.flights
-      @flights = @plane.flights
+    if params[:plane_id]
+      @plane = Plane.find params[:plane_id]
+      if @plane.flights
+        @flights = @plane.flights
+      else
+        @flights = []
+      end
     else
-      @flights = []
+      @flights = Flight.all
     end
+    respond_to do |format| 
+      format.html {}
+      format.json {render :json => @flights}
+    end 
   end
 
   # GET /flights/1
@@ -18,7 +26,6 @@ class FlightsController < ApplicationController
   def show
     @plane = Plane.find params[:plane_id]
     @flight = Flight.find params[:id]
-
   end
 
   # GET /flights/new
