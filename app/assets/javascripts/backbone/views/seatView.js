@@ -21,7 +21,6 @@ app.SeatView = Backbone.View.extend({
     var view = this;
 
     r = app.currentReservations.toJSON();
-
     for (var i = 0; i < r.length; i++) {
       if (data.row === r[i].row && data.column === r[i].column) {
         if (app.currentReservations.toJSON()[i].user_id > 0) {
@@ -32,6 +31,10 @@ app.SeatView = Backbone.View.extend({
 
     var toAppend = view.$el.html(seatViewHTML(data));
     $('#flightViewDiv').append(toAppend);
+
+    // setInterval(function() {
+
+    // }, 3000);
   },
 
   reserveSeat: function() {
@@ -57,7 +60,7 @@ app.SeatView = Backbone.View.extend({
       // console.log(app.allUsers.toJSON()[reservation.user_id - 1].name);
     } else if (this.$el.hasClass('reserved')) {
       this.$el.removeClass('reserved');
-      app.thisRes.user_id = nil;
+      app.thisRes.user_id = false;
     } else {
       this.$el.addClass('reserved');
       app.thisRes.user_id = gon.user.id;
@@ -68,11 +71,13 @@ app.SeatView = Backbone.View.extend({
     $.ajax({
       url: ('/app/planes/' + app.currentPlane + '/flights/' + app.currentFlight + '/reservations'),
       method: 'POST',
-      row: app.thisRes.row,
-      column: app.thisRes.column,
-      user_id: app.thisRes.user_id
-    }).done(function() {
-      console.log('update complete');
+      data: {
+        row: app.thisRes.toJSON().row,
+        column: app.thisRes.toJSON().column,
+        user_id: app.thisRes.user_id
+      }
+    }).done(function(data) {
+      console.log(data);
     });
 
     // window.alert('Congrats! This seat is taken so your chance of death in the near future has reduced dramatically!');

@@ -38,10 +38,13 @@ class ReservationsController < ApplicationController
   # POST /reservations
   # POST /reservations.json
   def create
-    @reservation = Reservation.where(:flight_id => params[:flight_id], :row => )
+    @reservation = Reservation.where(:flight_id => params[:flight_id], :row => params[:row], :column => params[:column])
     @flight = Flight.find params[:flight_id]
-    @reservation.flight_id = @flight.id
+    
+    @reservation[0].user_id = params[:user_id]
+    @reservation[0].save
 
+    render :json => { :status => 'okay' }
     # respond_to do |format|
     #     # if @reservation.save
     #     #   format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
